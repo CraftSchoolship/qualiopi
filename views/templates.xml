@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        
+
+        <template id="index" name="Courses">
+		<t t-call="website.layout">
+			<div id="wrap" class="oe_structure oe_empty">
+				<section>
+					<div class="container">
+						<div class="text-center py-5">
+							<h2 class="h1">
+								Courses
+							</h2>
+					    </div>
+					    <div class="row justify-content-center my-4">
+						    <div class="col-12 col-sm-12 col-md-4 col-lg-4 coursedetails pb32 o_colored_level" t-foreach="op_courses" t-as="course">
+							    <div class="card bg-white h-100 border-0 w-100 rounded-0 bg-transparent o_dynamic_product_hovered">
+								    <a class="o_carousel_product_img_link overflow-hidden">
+									    <img class="card-img-top h-auto o_img_product_square o_img_product_cover rounded" t-attf-src="data:image/png;base64,{{course.course_image}}" />
+								    </a>
+                                    
+							        <div class="card-body">
+									    <h5 class="card-title-course">
+										    <t t-esc="course.name" />
+									    </h5>
+                                        <t t-raw="course.description" />
+								        <a t-attf-href="/course/#{course.id}" class="btn btn-primary">
+									        Discover
+								        </a>
+							        </div>
+							    </div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>			
+		</t>
+	</template>
+    
+    <template id="course_details" name="Course details">
+    <t t-call="website.layout">
+
+        <div style="background: url(/qualiopi/static/img/bg.jpg); " class="jumbotron bg-cover text-white">
+            <div class="container py-5 text-center">
+                <h1 class="display-4 font-weight-bold">Our Training</h1>
+                <img class="card-img-top mx-auto d-block" style="max-width: 400px;" t-attf-src="data:image/png;base64,{{course.course_image}}" alt="Course Image"/>
+                <h2 class="card-title-course">
+                            <t t-esc="course.name"  />
+                        
+                </h2>
+                
+            </div>
+            <h3 class="rating">
+                <span t-attf-class="star active" t-foreach="range(int(course.priority))" t-as="star" t-key="star"></span>
+                <span t-attf-class="star" t-foreach="range(5 - int(course.priority))" t-as="star" t-key="star"></span>
+            </h3>
+            
+
+
+           
+        </div>
+
+        
+        <div id="wrap" class="oe_structure oe_empty">
+    <section>
+        <div class="container" style="max-width: 800px; margin: auto;">
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title">Duration</h4>
+                    <p class="card-text">
+                        <t t-set="hours" t-value="int(course.duration_hours)" />
+                        <t t-set="days" t-value="hours // 24" />
+                        <t t-esc="'{} hours ({} days)'.format(hours, days)" />
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title">Objectives</h4>
+                    <p class="card-text"><t t-raw="course.objectives" /></p>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title ">Educational and Technical Means</h4>
+                    <p class="card-text "><t t-raw="course.educational_means" /></p>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="card-title ">Access</h4>
+                            <p class="card-text ">
+                                <span t-raw="course.access"/>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <h4 class="card-title ">Deadlines</h4>
+                            <p class="card-text ">
+                                <span t-raw="course.deadline"/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title ">Assessment Methods</h4>
+                    <p class="card-text "><t t-raw="course.assessment_methods" /></p>
+                </div>
+            </div>
+
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title " >Accessibility</h4>
+                    <p class="card-text "><t t-raw="course.accessibility" /></p>
+                </div>
+            </div>
+
+        
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="text-center">
+                        <img class="img-fluid" t-attf-src="data:image/png;base64,{{course.certification_image}}" alt="Certification Image"/>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <h4 class="card-title text-center">Certification Pass Rates</h4>
+                            <p class="card-text text-center"><t t-raw="course.certification_pass_rates" /></p>
+                        </div>
+                        <div class="col">
+                            <h4 class="card-title text-center">How to Validate Specific Skills</h4>
+                            <p class="card-text text-center"><t t-raw="course.validate_specific_skills" /></p>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <h4 class="card-title text-center">Equivalent Certifications</h4>
+                            <p class="card-text text-center"><t t-raw="course.equivalent_certifications" /></p>
+                        </div>
+                        <div class="col">
+                            <h4 class="card-title text-center">Further Training Options</h4>
+                            <p class="card-text text-center"><t t-raw="course.further_training_options" /></p>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col">
+                            <h4 class="card-title text-center">Job Opportunities</h4>
+                            <p class="card-text text-center"><t t-raw="course.job_opportunities" /></p>
+                        </div>
+                        <div class="col">
+                            <h4 class="card-title text-center">Ways to Switch Between Certifications</h4>
+                            <p class="card-text text-center"><t t-raw="course.switch_between_certifications" /></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="card-title">Prerequisites</h4>
+                            <p class="card-text">
+                                <span t-raw="course.prerequisites"/>
+                            </p>
+                        </div>
+                        <div class="col">
+                            <h4 class="card-title text-center">Price</h4>
+                            <p class="card-text text-center">
+                                <span t-raw="course.pricing"/>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>       
+    </t>
+</template>
+    </data>
+</odoo>
