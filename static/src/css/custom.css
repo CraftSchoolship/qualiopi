@@ -1,0 +1,52 @@
+.bg-cover {
+    background-size: cover !important;
+}
+
+.rating {
+    text-align: center; 
+}
+
+.stars {
+    font-size: 64px !important
+}
+
+.rating .star {
+    color: #ccc; 
+    display: inline-block;
+    width: 20px;
+    overflow: hidden;
+    margin-right: 2px;
+    
+}
+
+.rating .star.active {
+    color: orange;
+    margin-right: 2px; 
+    
+}
+
+.rating .star:before {
+    content: "\2605"; 
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: #666;
+    font-size: 1rem;
+}
+
+.card-body {
+    padding: 20px;
+}
