@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_workflow_form" model="ir.ui.view">
+            <field name="name">workflow.form</field>
+            <field name="model">workflow</field>
+            <field name="arch" type="xml">
+                <form string="Workflow Form">
+                    <sheet>
+                        <group>
+                            <field name="indicatornumber"/>
+                            <field name="summary" widget="html"/>
+                            <field name="partner_id" widget="many2many_avatar_user"/>
+                            <div>
+                                <button name="toggle_verification" type="object"
+                                        attrs="{'invisible': [('verification_status', '=', 'verified')]}"
+                                        string="Not Verified" class="oe_highlight"/>
+                                <button name="toggle_verification" type="object"
+                                        attrs="{'invisible': [('verification_status', '=', 'not_verified')]}"
+                                        string="Verified" class="oe_highlight"/>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="verified_by" widget="many2one_avatar_user"/>
+                            <field name="verification_method"/>
+                            <field name="attachment_ids" widget="many2many_binary"/>
+                            <field name="verification_status" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_workflow_tree" model="ir.ui.view">
+            <field name="name">workflow.tree</field>
+            <field name="model">workflow</field>
+            <field name="arch" type="xml">
+                <tree string="Workflow Tree" >
+                    <field name="sequence" widget="handle"/>
+                    <field name="indicatornumber" width="80px"/>
+                    <field name="summary" widget="html"/>
+                    <field name="partner_id" widget="many2many_avatar_user"/>
+                    <field name="verification_status" 
+                    decoration-success="verification_status=='verified'" 
+                    decoration-danger="verification_status=='not_verified'"
+                    widget="badge"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="act_open_workflow_view" model="ir.actions.act_window">
+            <field name="name">Qualiopi Workflow</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">workflow</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="qualiopi_workflow" name="Qualiopi Workflow"
+                  action="act_open_workflow_view" sequence="1"/>
+    </data>
+</odoo>
