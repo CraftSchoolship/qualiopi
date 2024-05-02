@@ -10,13 +10,7 @@
         "security/ir.model.access.csv",
         "views/workflow.xml",
     ],
-    'assets': {
-
-    'web.assets_frontend': [
-        'workflow/static/src/css/custom.css',
-    ],
-
-    },
+    
     "installable": True,
     "application": True,
     "license": "LGPL-3"
