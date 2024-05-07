@@ -10,11 +10,7 @@
                 <sheet>
                     <group>
                         <field name="indicatornumber"/>
-<<<<<<< HEAD
                         <field name="summary" />
-=======
-                        <field name="summary" widget="html"/>
->>>>>>> 53cc62070e7f9adc0ea9f7c73ab16078b4a7d47d
                         <field name="partner_id" widget="many2many_avatar_user"/>
                     </group>
                     <group>
@@ -22,13 +18,10 @@
                         <field name="verification_date"/>
                         <field name="verified_by" widget="many2one_avatar_user"/>
                         <field name="attachment_ids" widget="many2many_binary"/>
-<<<<<<< HEAD
                         <field name="link"/>
                         <button name="verify_link" string="Verify Link" type="object"/>
                     </group>
                     <group>
-=======
->>>>>>> 53cc62070e7f9adc0ea9f7c73ab16078b4a7d47d
                         <div>
                             <button name="toggle_verification" type="object"
                                     attrs="{'invisible': [('verification_status', '=', 'verified')]}"
@@ -40,16 +33,10 @@
                     </group>
                     <notebook>
                     <page name="description_page" string="Description">
-<<<<<<< HEAD
                         <field name="description" widget="html" />
                     </page>
                     </notebook>
                     
-=======
-                        <field name="description" type="html" />
-                    </page>
-                    </notebook>
->>>>>>> 53cc62070e7f9adc0ea9f7c73ab16078b4a7d47d
                 </sheet>
                 </form>
             </field>
@@ -62,11 +49,7 @@
                 <tree string="Workflow tree" class="my_class">
                     <field name="sequence" widget="handle"/>
                     <field name="indicatornumber"/>
-<<<<<<< HEAD
                     <field name="summary" />
-=======
-                    <field name="summary" widget="html"/>
->>>>>>> 53cc62070e7f9adc0ea9f7c73ab16078b4a7d47d
                     <field name="partner_id" widget="many2many_avatar_user"/>
                     <field name="verification_status" 
                     decoration-success="verification_status=='verified'" 

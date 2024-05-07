@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import requests
-=======
-
->>>>>>> 53cc62070e7f9adc0ea9f7c73ab16078b4a7d47d
 from odoo import api,models, fields
 
 class Workflow(models.Model):
@@ -21,7 +17,6 @@ class Workflow(models.Model):
     verified_by = fields.Many2one('res.users', string='Verified By')
     attachment_ids = fields.Many2many('ir.attachment', string='Attachments')
     description = fields.Text(string='Description')
-<<<<<<< HEAD
     link = fields.Char(string='Link')
     
     def toggle_verification(self):
@@ -62,10 +57,3 @@ class Workflow(models.Model):
                         'sticky': False,
                     }
                 }
-=======
-
-    def toggle_verification(self):
-        self.verification_status = 'verified' if self.verification_status == 'not_verified' else  'not_verified'
-
-    
->>>>>>> 53cc62070e7f9adc0ea9f7c73ab16078b4a7d47d
