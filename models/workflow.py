@@ -14,11 +14,6 @@ class Workflow(models.Model):
     ('not_verified', 'Not Verified'),
     ('verified', 'Verified'),],
     string='Verification Status')
-<<<<<<< HEAD
-=======
-    verification_date = fields.Date(string='Verification Date')
-    verified_by = fields.Many2one('res.users', string='Verified By')
->>>>>>> origin2/ithar-workflow
     description = fields.Text(string='Description')
     link = fields.Char(string='Link')
     
