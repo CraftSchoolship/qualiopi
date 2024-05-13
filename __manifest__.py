@@ -14,4 +14,8 @@
     "installable": True,
     "application": True,
     "license": "LGPL-3"
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin2/ithar-workflow
