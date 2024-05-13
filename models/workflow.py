@@ -3,10 +3,11 @@ from odoo import api,models, fields
 
 class Workflow(models.Model):
     _name='workflow'
-    _description='qualiopi workflow'
+    _description='Qualiopi Workflow'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
 
-    indicatornumber = fields.Integer(string='Indicator Number')
-    sequence = fields.Integer(string='Sequence', related='indicatornumber', store=True)
+    indicator_number = fields.Integer(string='Indicator Number')
+    sequence = fields.Integer(string='Sequence', related='indicator_number', store=True)
     summary = fields.Text(string='Summary')
     partner_id = fields.Many2many('res.users', string='Assignees')
     verification_status = fields.Selection([
@@ -15,12 +16,20 @@ class Workflow(models.Model):
     string='Verification Status')
     verification_date = fields.Date(string='Verification Date')
     verified_by = fields.Many2one('res.users', string='Verified By')
-    attachment_ids = fields.Many2many('ir.attachment', string='Attachments')
     description = fields.Text(string='Description')
     link = fields.Char(string='Link')
     
     def toggle_verification(self):
-        self.verification_status = 'verified' if self.verification_status == 'not_verified' else  'not_verified'
+        for record in self:
+            record.verification_status = 'verified' if record.verification_status == 'not_verified' else 'not_verified'
+            
+            if record.verification_status == 'verified':
+                message = "The record has been verified."
+            else:
+                message = "The record is not verified."
+            
+            record.message_post(body=message)
+
 
     def verify_link(self):
         for record in self:

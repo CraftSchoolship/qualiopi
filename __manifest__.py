@@ -5,7 +5,7 @@
     "author": "ithar",
     "summary": "",
     "description": "",
-    "depends": ["base"],
+    "depends": ["mail","base"],
     "data": [
         "security/ir.model.access.csv",
         "views/workflow.xml",
