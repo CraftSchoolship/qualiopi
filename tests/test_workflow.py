@@ -15,8 +15,6 @@ class TestWorkflow(TransactionCase):
             'summary': 'Test Summary',
             'partner_id': [(6, 0, [self.env.ref('base.user_admin').id])],
             'verification_status': 'not_verified',
-            'verification_date': fields.Date.today(),
-            'verified_by': self.env.ref('base.user_admin').id,
             'description': 'Test Description',
             'link': 'https://www.example.com',
         })
@@ -31,8 +29,6 @@ class TestWorkflow(TransactionCase):
             'sequence': 1,
             'summary': 'Test Summary',
             'verification_status': 'not_verified',
-            'verification_date': fields.Date.today(),
-            'verified_by': self.env.ref('base.user_admin').id,
             'description': 'Test Description',
             'link': 'https://www.example.com',
         }])

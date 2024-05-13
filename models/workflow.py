@@ -14,8 +14,6 @@ class Workflow(models.Model):
     ('not_verified', 'Not Verified'),
     ('verified', 'Verified'),],
     string='Verification Status')
-    verification_date = fields.Date(string='Verification Date')
-    verified_by = fields.Many2one('res.users', string='Verified By')
     description = fields.Text(string='Description')
     link = fields.Char(string='Link')
     
