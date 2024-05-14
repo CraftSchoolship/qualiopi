@@ -13,12 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: List addons directory contents
-      run: |
-        echo "Listing addons directory contents:"
-        ls -la /bitnami/testing/addons
-
-
     - name: Set up Docker
       uses: docker-practice/actions-setup-docker@master
 
@@ -46,3 +40,8 @@ jobs:
           --network odoo-test-network \
           --volume ${{ github.workspace }}/addons:/bitnami/testing/addons/workflow \
           ghcr.io/craftschoolship/odoo-test:16.1.2-sat -u workflow
+
+    - name: List addons directory contents
+        run: |
+          echo "Listing addons directory contents:"
+          ls -la /bitnami/testing/addons
