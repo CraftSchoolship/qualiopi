@@ -2,9 +2,8 @@ name: Run Odoo Tests
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ ithar-workflow ]
+  
 
 jobs:
   test:
@@ -40,8 +39,3 @@ jobs:
           --network odoo-test-network \
           --volume ${{ github.workspace }}:/bitnami/testing/addons/workflow \
           ghcr.io/craftschoolship/odoo-test:16.1.2-sat -u workflow
-
-    - name: List addons directory contents
-      run: |
-        echo "Listing addons directory contents:"
-        docker exec odoo-test ls -la /bitnami/testing/addons
