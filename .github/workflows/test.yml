@@ -13,6 +13,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: List addons directory contents
+      run: |
+        echo "Listing addons directory contents:"
+        ls -la /bitnami/testing/addons
+
+
     - name: Set up Docker
       uses: docker-practice/actions-setup-docker@master
 
