@@ -42,6 +42,6 @@ jobs:
           ghcr.io/craftschoolship/odoo-test:16.1.2-sat -u workflow
 
     - name: List addons directory contents
-        run: |
-          echo "Listing addons directory contents:"
-          ls -la /bitnami/testing/addons
+      run: |
+        echo "Listing addons directory contents:"
+        ls -la /bitnami/testing/addons
