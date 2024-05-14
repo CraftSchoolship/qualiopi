@@ -1,0 +1,45 @@
+name: Run Odoo Tests
+
+on:
+  push:
+    branches: [ ithar-workflow ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Docker
+      uses: docker-practice/actions-setup-docker@master
+
+    - name: Create Docker network
+      run: docker network create odoo-test-network
+
+    - name: Start PostgreSQL
+      run: |
+        docker run -d --name odoo-test-postgresql \
+          --env POSTGRESQL_USERNAME=bn_odoo \
+          --env POSTGRESQL_PASSWORD=bitnami \
+          --env POSTGRESQL_DATABASE=bitnami_odoo \
+          --network odoo-test-network \
+          bitnami/postgresql:16
+
+    - name: Run Odoo tests
+      run: |
+        docker run -t --name odoo-test \
+          --env ODOO_DATABASE_ADMIN_PASSWORD=bitnami \
+          --env ODOO_DATABASE_NAME=bitnami_odoo \
+          --env ODOO_DATABASE_USER=bn_odoo \
+          --env ODOO_DATABASE_PASSWORD=bitnami \
+          --env ODOO_DATABASE_HOST=odoo-test-postgresql \
+          --env ODOO_DATABASE_PORT_NUMBER=5432 \
+          --network odoo-test-network \
+          --volume ${{ github.workspace }}:/bitnami/testing/addons/workflow \
+          ghcr.io/craftschoolship/odoo-test:16.1.2-sat -u workflow
+
+    - name: List addons directory contents
+      run: |
+        echo "Listing addons directory contents:"
+        docker exec odoo-test ls -la /bitnami/testing/addons
