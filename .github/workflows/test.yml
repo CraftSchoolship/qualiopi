@@ -37,5 +37,5 @@ jobs:
           --env ODOO_DATABASE_HOST=odoo-test-postgresql \
           --env ODOO_DATABASE_PORT_NUMBER=5432 \
           --network odoo-test-network \
-          --volume ${{ github.workspace }}:/bitnami/testing/addons \
-          ghcr.io/craftschoolship/odoo-test:16.1.2-sat -u workflow
+          --volume .:/bitnami/testing/addons \
+          ghcr.io/craftschoolship/odoo-test:16.1.2-sat 
