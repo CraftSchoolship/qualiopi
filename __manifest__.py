@@ -9,6 +9,7 @@
     "data": [
         "security/ir.model.access.csv",
         "views/workflow.xml",
+        "data/data.xml",
     ],
     
     "installable": True,
