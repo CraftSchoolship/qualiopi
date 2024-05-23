@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1"> 
+        <record id="workflow1" model="workflow">
+            <field name="indicator_number">1</field>
+            <field name="summary"> The provider should create a comprehensive training webpage that provides detailed and verifiable information about the services offered. This includes prerequisites, objectives, duration (in days and hours), access arrangements and deadlines, prices, contacts, methods used, evaluation methods, and accessibility for people with disabilities.</field>
+            <field name="verification_status">not_verified</field>
+            <field name="link">http://example.com</field>
+            <field name="description"><![CDATA[<p>Description 1</p>]]></field>
+        </record>
+
+        <record id="workflow2" model="workflow">
+            <field name="indicator_number">2</field>
+            <field name="summary">The provider should incorporate a system on the training webpage that displays a satisfaction rate for each training, represented by a number of stars out of 5. This will serve as an indicator of the success of their services.</field>
+            <field name="verification_status">not_verified</field>
+            <field name="link">http://example.com</field>
+            <field name="description"><![CDATA[<p> Description 2</p>]]></field>
+        </record>
+
+        <record id="workflow9" model="workflow">
+            <field name="indicator_number">9</field>
+            <field name="summary">The provider should include a site policy that incorporates the Internal Regulation of the training center. Trainees should be required to accept this Internal Regulation before they can access the site.</field>
+            <field name="verification_status">not_verified</field>
+            <field name="link">http://example.com</field>
+            <field name="description"><![CDATA[<p> Description 9</p>]]></field>
+        </record>
+
+        <record id="workflow10" model="workflow">
+            <field name="indicator_number">10</field>
+            <field name="summary">The provider should build the training to adapt to the pace of the trainee. This can be achieved through individual practical work, involving either self-assessment or direct assessment by the trainer.</field>
+            <field name="verification_status">not_verified</field>
+            <field name="link">http://example.com</field>
+            <field name="description"><![CDATA[<p> Description 10</p>]]></field>
+        </record>
+
+        <record id="workflow11" model="workflow">
+            <field name="indicator_number">11</field>
+            <field name="summary">The provider should use a system to track and evaluate a trainee’s progress in their training. Regular feedback should be provided to the trainee.</field>
+            <field name="verification_status">not_verified</field>
+            <field name="link">http://example.com</field>
+            <field name="description"><![CDATA[<p> Description 11</p>]]></field>
+        </record>
+
+        <record id="workflow12" model="workflow">
+            <field name="indicator_number">12</field>
+            <field name="summary"> The provider should implement an attendance system in the Learning Management System (LMS) to promote engagement of beneficiaries and prevent dropouts.</field>
+            <field name="verification_status">not_verified</field>
+            <field name="link">http://example.com</field>
+            <field name="description"><![CDATA[<p> Description 12</p>]]></field>
+        </record>
+
+        <record id="workflow17" model="workflow">
+            <field name="indicator_number">17</field>
+            <field name="summary">The training center should provide facilities (either their own or those provided by partners), a training sheet indicating necessary resources, a recommendation for the use of personal computers, internet connection, software resources during the session, the option for the trainee to use center-provided PCs at an additional cost, the option of conducting training at the client’s location, and the trainer’s CV.</field>
+            <field name="verification_status">not_verified</field>
+            <field name="link">http://example.com</field>
+            <field name="description"><![CDATA[<p> Description 17</p>]]></field>
+        </record>
+
+        <record id="workflow18" model="workflow">
+            <field name="indicator_number">18</field>
+            <field name="summary">The provider should effectively mobilize and coordinate various internal and/or external stakeholders. These may include educational, administrative, logistical, and commercial stakeholders.</field>
+            <field name="verification_status">not_verified</field>
+            <field name="link">http://example.com</field>
+            <field name="description"><![CDATA[<p> Description 18</p>]]></field>
+        </record>
+
+        <record id="workflow19" model="workflow">
+            <field name="indicator_number">19</field>
+            <field name="summary">The provider should make educational resources available in the LMS. These resources should be dated, and each learner should have access to dated and updated documents. The date of the last update should not be old. The LMS should also showcase several examples of varied and rich support materials.</field>
+            <field name="verification_status">not_verified</field>
+            <field name="link">http://example.com</field>
+            <field name="description"><![CDATA[<p> Description 19</p>]]></field>
+        </record>
+
+
+        
+    </data>
+</odoo>
