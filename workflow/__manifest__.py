@@ -2,7 +2,7 @@
     "version": "1.0",
     "name": "qualiopi workflow",
     "category": "Human Resources",
-    "author": "ithar",
+    "author": "wael",
     "summary": "",
     "description": "",
     "depends": ["mail","base"],
