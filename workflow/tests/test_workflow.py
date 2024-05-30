@@ -1,6 +1,7 @@
 import logging
 from odoo.tests.common import TransactionCase, tagged
 from odoo import fields
+import re
 
 _logger = logging.getLogger(__name__)
 
@@ -41,11 +42,11 @@ class TestWorkflow(TransactionCase):
 
         workflow_id.toggle_verification()
         self.assertEqual(workflow_id.verification_status, 'verified')
-        self.assertIn("The record has been verified.", [str(message.body) for message in workflow_id.message_ids])
+        self.assertIn("The record has been verified.", [self._strip_html_tags(message.body) for message in workflow_id.message_ids])
 
         workflow_id.toggle_verification()
         self.assertEqual(workflow_id.verification_status, 'not_verified')
-        self.assertIn("The record is not verified.", [str(message.body) for message in workflow_id.message_ids])
+        self.assertIn("The record is not verified.", [self._strip_html_tags(message.body) for message in workflow_id.message_ids])
 
         _logger.info('TestWorkflow.test_02_toggle_verification executed successfully')
 
@@ -64,3 +65,8 @@ class TestWorkflow(TransactionCase):
         self.assertIn('The link is not valid.', action['params']['message'])
 
         _logger.info('TestWorkflow.test_03_verify_link executed successfully')
+
+    def _strip_html_tags(self, text):
+        """Remove HTML tags from a string."""
+        clean = re.compile('<.*?>')
+        return re.sub(clean, '', text)
