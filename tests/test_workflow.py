@@ -1,9 +1,11 @@
 import logging
-from odoo.tests.common import TransactionCase
+from odoo.tests.common import TransactionCase, tagged
 from odoo import fields
+import re
 
 _logger = logging.getLogger(__name__)
 
+@tagged('qualiopi-workflow-test')
 class TestWorkflow(TransactionCase):
 
     def setUp(self, *args, **kwargs):
@@ -33,7 +35,6 @@ class TestWorkflow(TransactionCase):
             'link': 'https://www.example.com',
         }])
 
-        
         _logger.info('TestWorkflow.test_01_workflow_values executed successfully')
 
     def test_02_toggle_verification(self):
