@@ -40,7 +40,7 @@ class Workflow(models.Model):
                         'tag': 'display_notification',
                         'params': {
                             'title': 'Success!',
-                            'message': 'The link exists.',
+                            'message': 'The link is valid.',
                             'sticky': False,
                         }
                     }
@@ -50,7 +50,7 @@ class Workflow(models.Model):
                         'tag': 'display_notification',
                         'params': {
                             'title': 'Error!',
-                            'message': 'The link does not exist.',
+                            'message': 'The link is not valid.',
                             'sticky': False,
                         }
                     }
