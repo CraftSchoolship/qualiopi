@@ -19,11 +19,11 @@ class Workflow(models.Model):
     
     def toggle_verification(self):
         for record in self:
-            record.verification_status = 'verified' if record.verification_status == 'not_verified' else 'not_verified'
-            
-            if record.verification_status == 'verified':
+            if record.verification_status == 'not_verified':
+                record.verification_status = 'verified'
                 message = "The record has been verified."
             else:
+                record.verification_status = 'not_verified'
                 message = "The record is not verified."
             
             record.message_post(body=message)
